@@ -1,1 +1,7 @@
+<% if current_user.try(:admin?) %>
 <%= @user.name %>, <%= @user.email %>
+<% else %>
+<h1>You don't have the previllege to see this information</h1>
+<h3 style="text-align: center;">If you're an admin please, log in</h3>
+<%= link_to "Log in", new_user_session_path , class: "btn btn-lg btn-info container", id: "loginButton"%>
+<% end %>
