@@ -17,12 +17,14 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home",   root_path %></li>
-            <li><%= link_to "Log in", '#' %></li>
-            <li><%= link_to "Sign up now!", signup_path, class: "btn btn-info", id: "loginButton"%></li>
+            <li><%= link_to "Log in", new_user_session_path %></li>
+            <li><%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-info", id: "loginButton"%></li>
           </ul>
         </nav>
       </div>
     </header>
+    <p class="notice container"><%= notice %></p>
+    <p class="alert container"><%= alert %></p>
     <div class="container">
       <%= yield %>
     </div>
