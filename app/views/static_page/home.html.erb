@@ -5,4 +5,11 @@
     This is the home page for the ROR challange
   </h2>
 
+  <% if user_signed_in? %>
+  <li><%= link_to "Log out", destroy_user_session_path, :method => :delete ,class: "btn btn-lg btn-danger", id: "loginButton"%></li>
+  <% else %>
+  <li><%= link_to "Log in", new_user_session_path %></li>
+  <li><%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-info", id: "loginButton"%></li>
+  <% end %>
+
 </div>

@@ -16,13 +16,20 @@
         <%= link_to "Raye7", root_path, id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
+
             <li><%= link_to "Home",   root_path %></li>
+            <% if user_signed_in? %>
+            <li><%= link_to "Log out", destroy_user_session_path, :method => :delete ,class: "btn btn-danger", id: "loginButton"%></li>
+            <% else %>
             <li><%= link_to "Log in", new_user_session_path %></li>
             <li><%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-info", id: "loginButton"%></li>
+            <% end %>
+
           </ul>
         </nav>
       </div>
     </header>
+
     <p class="notice container"><%= notice %></p>
     <p class="alert container"><%= alert %></p>
     <div class="container">
