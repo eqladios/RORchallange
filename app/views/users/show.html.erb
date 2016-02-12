@@ -1,5 +1,14 @@
+<title><%=@user.name%></title>
 <% if @user == current_user || current_user.admin? %>
-<%= @user.name %>, <%= @user.email %>
+<ul class="users">
+  <li>
+    <%= @user.name %>
+    <br><%= @user.email %>
+    <br>Posted: <%=@user.trips.count%> Trips
+    <br>Joined: <%=@user.trips.count%> Trips
+    <br><%= link_to 'Settings', edit_user_registration_path %> | <%= link_to 'Back', users_path %>
+  </li>
+</ul>
 <% else %>
 <h1>Sorry, you cannot see other users information.</h1>
 <% end %>
