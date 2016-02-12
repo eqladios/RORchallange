@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'membership/create'
+
+  get 'membership/destroy'
+
   resources :trips
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
