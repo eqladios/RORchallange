@@ -81,6 +81,15 @@ class TripsController < ApplicationController
     end
   end
 
+  def unjoin
+    @trip = Trip.find(params[:id])
+    @m = @trip.memberships.find_by(params[:user_id => current_user.id])
+    if @m.destroy
+    flash[:notice] = "You have unjoined this trip."
+        redirect_to :back
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_trip

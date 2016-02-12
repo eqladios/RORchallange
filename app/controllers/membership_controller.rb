@@ -15,7 +15,7 @@ class MembershipsController < ApplicationController
     def destroy
       @membership = current_user.memberships.find(params[:id])
       @membership.destroy
-      flash[:notice] = "Removed membership."
+      flash[:notice] = "You have unjoined this trip."
           redirect_to :back
     end
 

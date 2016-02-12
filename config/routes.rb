@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :trips do
     get 'join', :on => :member
+    get 'unjoin', :on => :member
   end
 
   devise_for :users
