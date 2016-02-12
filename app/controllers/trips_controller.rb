@@ -83,8 +83,9 @@ class TripsController < ApplicationController
 
   def unjoin
     @trip = Trip.find(params[:id])
-    @m = @trip.memberships.find_by(params[:user_id => current_user.id])
-    if @m.destroy
+    @m = @trip.memberships.find_by(params[:current_user.id])
+    #@m = @trip.memberships.find(params[:user_id => current_user.id])
+    @m.destroy
     flash[:notice] = "You have unjoined this trip."
         redirect_to :back
   end
