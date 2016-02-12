@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
          validates_presence_of :name
          validates_presence_of :home
          validates_presence_of :work
+  has_many :trips
 end
