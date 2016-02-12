@@ -1,4 +1,4 @@
-<%= form_for(@trip) do |f| %>
+<%= simple_form_for(@trip) do |f| %>
   <% if @trip.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
@@ -12,12 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :time %><br>
-    <%= f.text_field :time %>
+    <%= f.input :time, as: :time %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.text_field :date %>
+    <%= f.input :date, as: :date, start_year: Date.today.year,end_year: Date.today.year + 10, discard_day: false,order: [:day,:month, :year] %>
   </div>
   <div class="field">
     <%= f.label :source %><br>

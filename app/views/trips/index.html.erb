@@ -16,8 +16,8 @@
   <tbody>
     <% @trips.each do |trip| %>
       <tr>
-        <td><%= trip.time %></td>
-        <td><%= trip.date %></td>
+        <td><%= trip.time.strftime("%l:%M %p")%></td>
+        <td><%= trip.date.strftime("%d/%m/%Y") %></td>
         <td><%= trip.source %></td>
         <td><%= trip.destination %></td>
         <td><%= link_to 'Show', trip %></td>
