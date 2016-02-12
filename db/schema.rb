@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212165847) do
+ActiveRecord::Schema.define(version: 20160212172738) do
 
   create_table "join_relationships", force: :cascade do |t|
     t.integer  "join_user_id"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20160212165847) do
   create_table "memberships", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "trip_id"
   end
 
   create_table "trips", force: :cascade do |t|

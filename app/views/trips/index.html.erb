@@ -7,7 +7,7 @@
       <br>Destination: <%= trip.destination %>
       <%if trip.user != current_user%>
       <br><%= link_to 'Join!', trip %>
-      <br><%= link_to "Join this trip", join_trip_path(@trip) %>
+      <br><%= link_to "Join this trip", join_trip_path(trip) %>
       <% end %>
       <% if trip.user == current_user || current_user.try(:admin?) %>
         <br><%= link_to 'Edit', edit_trip_path(trip) %>
