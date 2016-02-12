@@ -10,6 +10,8 @@
         <% if trip.users.include?(current_user) %>
         <br><%= link_to "Unjoin this trip", unjoin_trip_path(trip) %>
         <% else %>
+        <%= link_to 'Show this trip', trip,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
+        <div id="modal-window" class="modal fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
         <br><%= link_to "Join this trip", join_trip_path(trip) %>
         <% end %>
         <% end %>

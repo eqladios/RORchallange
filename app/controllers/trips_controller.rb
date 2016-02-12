@@ -11,6 +11,10 @@ class TripsController < ApplicationController
   # GET /trips/1
   # GET /trips/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /trips/new
@@ -88,7 +92,6 @@ class TripsController < ApplicationController
     flash[:notice] = "You have unjoined this trip."
         redirect_to :back
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
