@@ -1,14 +1,16 @@
 <title><%=@user.name%></title>
 <% if @user == current_user || current_user.admin? %>
 <ul class="users">
-  <li>
-    <%= @user.name %>
-    <br><%= @user.email %>
-    <br>Posted: <%=@user.trips.count%> Trips
-    <% @membership = Membership.where(user_id:current_user.id)%>
-    <br>Joined: <%=@membership.count%> Trips
-    <br><%= link_to 'Settings', edit_user_registration_path %> | <%= link_to "Back", :back %>
-  </li>
+  <div class="border-form-div">
+    <li>
+      <%= @user.name %>
+      <br><%= @user.email %>
+      <br>Posted: <%=@user.trips.count%> Trips
+      <% @membership = Membership.where(user_id:current_user.id)%>
+      <br>Joined: <%=@membership.count%> Trips
+      <br><%= link_to 'Settings', edit_user_registration_path %> | <%= link_to "Back", :back %>
+    </li>
+  </div>
 </ul>
 <% else %>
 <h1>Sorry, you cannot see other users information.</h1>

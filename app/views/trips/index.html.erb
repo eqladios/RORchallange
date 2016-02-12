@@ -1,26 +1,26 @@
 <h1>Listing Trips</h1>
-
 <ul class="users">
   <% @trips.each do |trip| %>
     <li>
-      Source: <%= trip.source %>
-      <br>Destination: <%= trip.destination %>
-      <%if trip.user != current_user%>
-      <br><%= link_to 'Join!', trip %>
-      <% if trip.users.include?(current_user) %>
-      <br><%= link_to "Unjoin this trip", unjoin_trip_path(trip) %>
-      <% else %>
-      <br><%= link_to "Join this trip", join_trip_path(trip) %>
-      <% end %>
-      <% end %>
-      <% if trip.user == current_user || current_user.try(:admin?) %>
-        <br><%= link_to 'Edit', edit_trip_path(trip) %>
-        <br><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
+      <div class="border-form-div">
+        Source: <%= trip.source %>
+        <br>Destination: <%= trip.destination %>
+        <%if trip.user != current_user%>
+        <br><%= link_to 'Join!', trip %>
+        <% if trip.users.include?(current_user) %>
+        <br><%= link_to "Unjoin this trip", unjoin_trip_path(trip) %>
+        <% else %>
+        <br><%= link_to "Join this trip", join_trip_path(trip) %>
+        <% end %>
+        <% end %>
+        <% if trip.user == current_user || current_user.try(:admin?) %>
+          <br><%= link_to 'Edit', edit_trip_path(trip) %>
+          <br><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
     </li>
   <% end %>
 </ul>
-
 <br>
 
 <%= link_to 'New Trip', new_trip_path %>
