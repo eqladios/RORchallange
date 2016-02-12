@@ -6,6 +6,9 @@
   </h2>
 
   <% if user_signed_in? %>
+  <% if current_user.admin? %>
+  <%= link_to "Browse Users", users_path,class: "btn btn-lg btn-success", id: "loginButton"%><br><br>
+  <% end %>
   <%= link_to "Browse Trips", trips_path,class: "btn btn-lg btn-info", id: "loginButton"%><br><br>
   <%= link_to "Log out", destroy_user_session_path, :method => :delete ,class: "btn btn-lg btn-danger", id: "loginButton"%>
   <% else %>
