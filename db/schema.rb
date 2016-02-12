@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212145555) do
+ActiveRecord::Schema.define(version: 20160212165847) do
+
+  create_table "join_relationships", force: :cascade do |t|
+    t.integer  "join_user_id"
+    t.integer  "joined_trip_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "join_relationships", ["join_user_id", "joined_trip_id"], name: "index_join_relationships_on_join_user_id_and_joined_trip_id", unique: true
+  add_index "join_relationships", ["join_user_id"], name: "index_join_relationships_on_join_user_id"
+  add_index "join_relationships", ["joined_trip_id"], name: "index_join_relationships_on_joined_trip_id"
+
+  create_table "memberships", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "trips", force: :cascade do |t|
     t.time     "time"
