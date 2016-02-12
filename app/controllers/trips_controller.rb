@@ -26,7 +26,7 @@ class TripsController < ApplicationController
   # POST /trips.json
   def create
     @trip = current_user.trips.build(trip_params)
-
+    @trip.users << current_user #User Join their own trip
     respond_to do |format|
       if @trip.save
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
