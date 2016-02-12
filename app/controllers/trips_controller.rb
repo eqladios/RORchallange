@@ -62,6 +62,20 @@ class TripsController < ApplicationController
     end
   end
 
+  def join
+    @trip = Trip.find(params[:id])
+    @m = @trip.memberships.build(:user_id => current_user.id)
+    respond_to do |format|
+      if @m.save
+        format.html { redirect_to(@trip, :notice => 'You have joined this trip.') }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to(@trip, :notice => 'Join error.') }
+        format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_trip
