@@ -1,34 +1,20 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Trips</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Time</th>
-      <th>Date</th>
-      <th>Source</th>
-      <th>Destination</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @trips.each do |trip| %>
-      <tr>
-        <td><%= trip.time.strftime("%l:%M %p")%></td>
-        <td><%= trip.date.strftime("%d/%m/%Y") %></td>
-        <td><%= trip.source %></td>
-        <td><%= trip.destination %></td>
-        <td><%= link_to 'Show', trip %></td>
-        <% if trip.user == current_user || current_user.try(:admin?) %>
-          <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
-          <td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="users">
+  <% @trips.each do |trip| %>
+    <li>
+      Source: <%= trip.source %>
+      <br>Destination: <%= trip.destination %>
+      <%if trip.user != current_user%>
+      <br><%= link_to 'Join!', trip %>
+      <% end %>
+      <% if trip.user == current_user || current_user.try(:admin?) %>
+        <br><%= link_to 'Edit', edit_trip_path(trip) %>
+        <br><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
 
 <br>
 
