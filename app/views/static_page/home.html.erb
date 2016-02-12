@@ -7,14 +7,13 @@
 
   <% if user_signed_in? %>
   <% if current_user.admin? %>
-  <%= link_to "Browse Users", users_path,class: "btn btn-lg btn-success", id: "loginButton"%><br><br>
+  <%= link_to "Browse Users", users_path,class: "btn btn-lg btn-success"%><br><br>
   <% end %>
-  <%= link_to "Browse Trips", trips_path,class: "btn btn-lg btn-info", id: "loginButton"%><br><br>
-  <%= link_to "Log out", destroy_user_session_path, :method => :delete ,class: "btn btn-lg btn-danger", id: "loginButton"%>
+  <%= link_to "Browse Trips", trips_path,class: "btn btn-lg btn-info"%><br><br>
   <% else %>
-  <%= link_to "Browse Trips", trips_path,class: "btn btn-lg btn-info", id: "loginButton"%><br><br>
-  <%= link_to "Log in", new_user_session_path, class: "btn btn-lg btn-primary", id: "loginButton" %><br><br>
-  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-success", id: "loginButton"%>
+  <%= link_to "Browse Trips", trips_path,class: "btn btn-lg btn-info"%><br><br>
+  <%= link_to "Log in", new_user_session_path, class: "btn btn-lg btn-primary"%><br><br>
+  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-success"%>
   <% end %>
 
 </div>

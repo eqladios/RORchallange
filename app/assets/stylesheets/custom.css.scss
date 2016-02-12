@@ -59,15 +59,36 @@ p {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  margin-top: 7px;
 }
 
-#logo:not(.nohover):hover {
+#logo:hover {
   color: #fff;
   text-decoration: none;
 }
 
 #loginButton{
   color: #fff
+}
+
+#loginButton:hover{
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
+}
+
+#logoutButton{
+  color: #fff
+}
+
+#logoutButton:hover{
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+
+#new-trip{
+  display: block;
 }
 
 /* Users index */
