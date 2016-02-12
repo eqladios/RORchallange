@@ -68,11 +68,16 @@ class TripsController < ApplicationController
     respond_to do |format|
       if @m.save
         format.html { redirect_to(@trip, :notice => 'You have joined this trip.') }
-        format.xml  { head :ok }
+        format.json { render :show, status: :ok, location: @trip }
       else
         format.html { redirect_to(@trip, :notice => 'Join error.') }
-        format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
+        format.json { render json: @trip.errors, status: :unprocessable_entity }
       end
+    end
+  rescue ActiveRecord::RecordNotUnique
+    respond_to do |format|
+    format.html { redirect_to(@trip, :notice => 'You already joined this trip!') }
+    format.json { render json: @trip.errors, status: :unprocessable_entity }
     end
   end
 
