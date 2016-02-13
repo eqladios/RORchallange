@@ -15,7 +15,7 @@ $ rake db:migrate
 $ rake db:migrate
 
 * Testing/Trying
-When you create an account,the only way you can make it an admin is through Rails Console
+When you create an account,the only way you can make it an admin is through Rails Console, I could have done a method to do it but there were more important tasks so ¯\_(ツ)_/¯
 All accounts are created as Regular Users
 If you try on Heroku
 Admin Access:
@@ -33,7 +33,7 @@ but typical steps would be:
 $ git push heroku master
 $ heroku run rake db:migrate
 The database on heroku would be empty as Postgresql is used in Production and SQLite3 is used in Development
-so you have to populate it. A fix would be using Postgresql on Production, Development and Testing
+so you have to populate it. A fix would be using Postgresql on Production, Development and Testing.
 
 * Application feautures
 Designed with Bootstrap3, so its UI is dynamic and multi-platforms-friendly
