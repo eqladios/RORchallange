@@ -25,5 +25,6 @@ module Challange
     config.active_record.raise_in_transactional_callbacks = true
     config.middleware.use ActionDispatch::Flash
     config.api_only = false
+    config.middleware.use ActionDispatch::Flash
   end
 end
