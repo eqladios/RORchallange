@@ -3,21 +3,16 @@
   <% @trips.each do |trip| %>
     <li>
       <div class="border-form-div">
-        Source: <%= trip.source %>
-        <br>Destination: <%= trip.destination %>
-        <%if trip.user != current_user%>
-        <br><%= link_to 'Join!', trip %>
+        <h3><%= trip.source %>-<%= trip.destination %></h3>
         <% if trip.users.include?(current_user) %>
-        <br><%= link_to "Unjoin this trip", unjoin_trip_path(trip) %>
+        <br><%= link_to "Unjoin this trip", unjoin_trip_path(trip), class: "btn btn-default" %>
         <% else %>
-        <%= link_to 'Show this trip', trip,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
+        <%= link_to 'Show this trip', trip,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: "btn btn-info"}  %>
         <div id="modal-window" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"></div>
-        <br><%= link_to "Join this trip", join_trip_path(trip) %>
-        <% end %>
         <% end %>
         <% if trip.user == current_user || current_user.try(:admin?) %>
-          <br><%= link_to 'Edit', edit_trip_path(trip) %>
-          <br><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <br><br><%= link_to 'Edit', edit_trip_path(trip) , class: "btn btn-warning"%>
+          <%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger"%>
         <% end %>
       </div>
     </li>

@@ -32,9 +32,9 @@
         </nav>
       </div>
     </header>
-
-    <p class="notice container"><%= notice %></p>
-    <p class="alert container"><%= alert %></p>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "container alert alert-success" %>
+    <% end %>
     <div class="container">
       <%= yield %>
     </div>

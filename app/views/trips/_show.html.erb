@@ -24,9 +24,6 @@
          <strong>Destination:</strong>
          <%= @trip.destination %>
        </p>
-       <% if @trip.user == current_user || current_user.admin? %>
-         <td><%= link_to 'Edit', edit_trip_path(@trip) %></td>
-       <% end %>
      </div>
      <div class="modal-footer">
        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
