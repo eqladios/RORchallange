@@ -5,10 +5,13 @@
 <ul class="users">
   <% @users.each do |user| %>
     <li>
-      <%= link_to user.name, user %>
-      <br>Posted: <%=user.trips.count%> Trips
-      <% @membership = Membership.where(user_id:current_user.id)%>
-      <br>Joined: <%=@membership.count%> Trips
+      <div class="border-form-div">
+        <h2><%= link_to user.name, user %></h2>
+        <p><br>Posted: <%=user.trips.count%> Trips</p>
+        <% @membership = Membership.where(user_id:user.id)%>
+        <p><br>Joined: <%=@membership.count%> Trips</p>
+        <p><br><%= link_to 'Settings', edit_user_registration_path %></p>
+      </div>
     </li>
   <% end %>
 </ul>
