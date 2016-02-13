@@ -12,10 +12,18 @@
     <![endif]-->
   </head>
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
+    <nav class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         <%= link_to "Raye7", root_path, id: "logo" %>
-        <nav>
+      </div>
+      <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-9" aria-expanded="false" style="height: 1px;">
           <ul class="nav navbar-nav navbar-right">
 
             <li><%= link_to "Home",   root_path %></li>
@@ -29,9 +37,9 @@
             <% end %>
 
           </ul>
-        </nav>
+        </div>
       </div>
-    </header>
+    </nav>
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: "container alert alert-success" %>
     <% end %>
