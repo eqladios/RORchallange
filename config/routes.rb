@@ -65,7 +65,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   #api
-  namespace :api do
+  namespace :api , defaults: {format: 'json'} do
     namespace :v1 do
       resources :trips, only: [:create]
     end

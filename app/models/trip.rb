@@ -6,4 +6,5 @@ class Trip < ActiveRecord::Base
   validates_presence_of :date
   validates_presence_of :source
   validates_presence_of :destination
+  validates_presence_of :user_id
 end
