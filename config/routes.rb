@@ -64,4 +64,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  #api
+  namespace :api do
+    namespace :v1 do
+      resources :trips, only: [:create]
+    end
+  end
 end
